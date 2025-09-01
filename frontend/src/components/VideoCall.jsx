@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from "react";
 import AgoraRTC from "agora-rtc-sdk-ng";
 
 export default function VideoCall({ channelName, userId }) {
-console.log("useridasdadasd", userId);
 
   const localRef = useRef(null);
   const remoteRef = useRef(null);
@@ -16,7 +15,8 @@ console.log("useridasdadasd", userId);
     const init = async () => {
       // 1. Fetch token
       const res = await fetch(
-        `http://192.168.1.31:3000/access_token?channelName=${channelName}&uid=${userId}` 
+        `http://localhost:3000/access_token?channelName=${channelName}&uid=${userId}`  // ager check karn same wifi pe ipconfig se ip nikal ke yaha daal dena
+        // `http://192.168.1.31:3000/access_token?channelName=${channelName}&uid=${userId}`  // ager check karn same wifi pe ipconfig se ip nikal ke yaha daal dena
       );
       const data = await res.json();
 
