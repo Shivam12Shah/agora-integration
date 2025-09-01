@@ -11,10 +11,12 @@ console.log("useridasdadasd", userId);
     const client = AgoraRTC.createClient({ mode: "rtc", codec: "vp8" });
     let localTracks = [];
 
+    
+
     const init = async () => {
       // 1. Fetch token
       const res = await fetch(
-        `http://localhost:3000/access_token?channelName=${channelName}&uid=${userId}`
+        `http://192.168.1.31:3000/access_token?channelName=${channelName}&uid=${userId}` 
       );
       const data = await res.json();
 
@@ -58,6 +60,9 @@ console.log("useridasdadasd", userId);
     };
   }, [channelName, userId]);
 
+
+
+
   return (
     <div style={{ display: "flex", gap: "20px" }}>
       <div
@@ -68,6 +73,9 @@ console.log("useridasdadasd", userId);
         ref={remoteRef}
         style={{ width: "300px", height: "200px", background: "gray" }}
       />
+      {
+        console.log("dhsagdshagdsadsa", remoteRef)
+      }
     </div>
   );
 }
